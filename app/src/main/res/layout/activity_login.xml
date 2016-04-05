@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?> <ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:background="@color/Fondo" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="@dimen/longinPadding">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content"> <TextView
+        android:text="@string/butt_login" android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:layout_gravity="center" android:layout_marginBottom="@dimen/loginFirstTextViewMarginBottom" android:textSize="@dimen/loginFirstTextViewTextSize"/>
+        <EditText android:id="@+id/loginUsername" android:singleLine="true"
+            android:hint="@string/loginFirstEditTextHint" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/loginPassword" android:inputType="textPassword" android:singleLine="true" android:hint="@string/loginSecondEditTextHint" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:orientation="horizontal" android:layout_height="wrap_content" android:layout_width="match_parent" style="?android:attr/buttonBarStyle" android:layout_marginTop="@dimen/loginButtonsMarginTop" android:layout_gravity="center" >
+            <Button
+                android:id="@+id/loginLoginButton" android:text="@string/loginLoginButtonText" android:layout_weight="1" android:layout_width="match_parent" android:layout_height="wrap_content" style="?android:attr/buttonBarButtonStyle"/>
+            <Button
+                android:id="@+id/loginCancelButton" android:text="@string/loginCancelButtonText" android:layout_weight="1" android:layout_width="match_parent" android:layout_height="wrap_content" style="?android:attr/buttonBarButtonStyle"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/loginNewUserButton" android:text="@string/loginNewUserButtonText" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>

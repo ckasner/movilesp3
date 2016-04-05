@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">CONECTA 4</string>
+    <string name="c1">1</string>
+    <string name="c2">2</string>
+    <string name="c3">3</string>
+    <string name="c4">4</string>
+    <string name="c5">5</string>
+    <string name="c6">6</string>
+    <string name="gameOverTitle">El Juego ha terminado!!</string>
+    <string name="noValido">Movimiento no válido!!</string>
+    <string name="Tablas"> EMPATE</string>
+    <string name="Error"> ERROR!!</string>
+    <string name="butt_jugar"> Jugar</string>
+    <string name="butt_ayuda"> Ayuda</string>
+    <string name="butt_punt"> Puntuacion</string>
+    <string name="butt_login"> Login</string>
+    <string name="butt_top">Top10</string>
+    <string name="menu_text">Menu</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="acercaDe">Acerca de</string>
+    <string name="Prefs">Preferencias</string>
+    <string name="Musica_menu">Musica</string>
+    <string name="Tablero_menu">Tablero</string>
+    <string name="Figura_menu">Figura</string>
+    <string name="TableroRojo">Tablero Rojo</string>
+    <string name="TableroMarron">Tablero Marron</string>
+
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">CONECTA4\nTOQUE PARA EMPEZAR</string>
+
+
+    <string name="longinFirstTextViewText">Login</string>
+    <string name="loginFirstEditTextHint">Nombre de usuario</string>
+    <string name="loginSecondEditTextHint">Clave secreta</string>
+    <string name="loginLoginButtonText">Entrar</string>
+    <string name="loginCancelButtonText">Salir</string>
+    <string name="loginNewUserButtonText">Nuevo usuario</string>
+    <string name="loginAlertDialogTitle">Error</string>
+    <string name="loginAlertDialogMessage">Login fallido</string>
+    <string name="loginAlertDialogNeutralButtonText">Inténtelo de nuevo</string>
+</resources>

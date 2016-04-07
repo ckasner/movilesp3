@@ -2,8 +2,11 @@ package root.cristinakasnerapp2;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,6 +27,7 @@ import logica.MovimientoConecta4;
 import logica.TableroConecta4;
 import vista.OnPlayListener;
 import vista.TableroConecta4View;
+import root.cristinakasnerapp2.CKASPreference;
 
 public class JuegaActivity extends AppCompatActivity implements OnPlayListener,Jugador {
 
@@ -78,7 +82,10 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
 
         @Override
         public String getNombre() {
-            return "Humano";
+            String name = "Persona";
+
+
+            return name;
         }
 
         @Override
@@ -128,7 +135,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
                     // setup a dialog window
                     // TODO Poner las strings en strings.xml
                     alertDialogBuilder
-                            .setMessage("Enhorabuena "+ jugadores.get(tablero.getTurno()).getNombre()+"!! Has Ganado!\n¿Quieres volver a jugar?")
+                            .setMessage("Enhorabuena "+ CKASPreference.PLAYER_NAME_DEFAULT +"!! Has Ganado!\n¿Quieres volver a jugar?")
                             .setCancelable(false)
                             .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {

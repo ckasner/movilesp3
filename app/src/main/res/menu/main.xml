@@ -3,24 +3,6 @@
     <item
         android:title="@string/acercaDe" android:id="@+id/menuAcerca" android:icon="@android:drawable/ic_menu_info_details" />
     <item
-        android:title="@string/Prefs" android:id="@+id/Prefs" android:icon="@android:drawable/ic_dialog_email" >
-    <menu>
-        <item
-            android:title="@string/Tablero_menu" android:id="@+id/menuTab"  >
-            <menu>
-                <group android:checkableBehavior="single">
-                    <item
-                    android:id="@+id/TableroRojo" android:title="@string/TableroRojo"/>
-                    <item
-                        android:id="@+id/TableroMarron" android:title="@string/TableroMarron"/>
+        android:title="@string/Prefs" android:id="@+id/Prefs" android:icon="@android:drawable/ic_dialog_email" />
 
-                </group>
-            </menu>
-        </item>
-        <item
-            android:title="@string/Figura_menu" android:id="@+id/menuFig"  />
-        <item
-            android:title="@string/Musica_menu" android:id="@+id/menuMusic"  />
-    </menu>
-    </item>
 </menu>

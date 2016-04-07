@@ -53,4 +53,13 @@
     <string name="loginAlertDialogTitle">Error</string>
     <string name="loginAlertDialogMessage">Login fallido</string>
     <string name="loginAlertDialogNeutralButtonText">Inténtelo de nuevo</string>
+
+    <string name="editTextPrefTitle">Nombre del jugador</string>
+    <string name="editTextPrefSummary">Pulse para teclear el nombre del jugador</string> <string name="secondCategoryPrefTitle">Ajustes del juego</string>
+    <string name="listPrefTitle">Tipo de figura</string>
+    <string name="listPrefSummary">Pulse para mostrar la lista</string>
+    <string name="checBoxPrefTitle">Música de fondo</string>
+    <string name="checBoxPrefSummary">Marque si desea escuchar música</string>
+    <string name="listPrefDialogTitle">Elija la figura inicial</string>
+    <string name="preferencesText">Ajustes</string>
 </resources>

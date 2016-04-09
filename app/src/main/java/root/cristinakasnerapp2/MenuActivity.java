@@ -1,11 +1,11 @@
 package root.cristinakasnerapp2;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,27 +18,27 @@ public class MenuActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        SharedPreferences prefs =
-                PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        /*SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
         SharedPreferences.OnSharedPreferenceChangeListener listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-
+                String name = "hum";
 
                 if (key.equals(CKASPreference.PLAYER_NAME_KEY)){
+                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    if (sharedPreferences.contains(CKASPreference.PLAYER_NAME_KEY))
+                        name = sharedPreferences.getString(CKASPreference.PLAYER_NAME_KEY, CKASPreference.PLAYER_NAME_DEFAULT);
+                    CKASPreference.setPlayerNameDefault(getApplicationContext() , name);
 
                 }
-                    String name = "Persona";
 
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                if (sharedPreferences.contains(CKASPreference.PLAYER_NAME_KEY))
-                    name = sharedPreferences.getString(CKASPreference.PLAYER_NAME_KEY, CKASPreference.PLAYER_NAME_DEFAULT);
+
 
 
 
             }
         };
-        prefs.registerOnSharedPreferenceChangeListener(listener);
+        prefs.registerOnSharedPreferenceChangeListener(listener);*/
     }
 
     public void irlogin(View view) {

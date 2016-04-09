@@ -8,12 +8,17 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 
-public class CKASPreference extends Activity {
+public class CKASPreference extends AppCompatActivity {
     public final static String PLAY_MUSIC_KEY = "music";
     public final static boolean PLAY_MUSIC_DEFAULT = true;
-    public final static String PLAYER_NAME_KEY = "playername"; public final static String PLAYER_NAME_DEFAULT = "Persona"; public final static String FIGURE_NAME_KEY = "figurename"; public final static String FIGURE_NAME_DEFAULT = "completo"; public final static String FIGURE_CODE_KEY = "figurecode"; public final static String FIGURE_CODE_DEFAULT =
-            "0011100001110011111111110111111111100111000011100";
+    public final static String PLAYER_NAME_KEY = "playername";
+    public final static String PLAYER_NAME_DEFAULT = "Persona";
+    public final static String FIGURE_NAME_KEY = "figurename";
+    public final static String FIGURE_NAME_DEFAULT = "completo";
+    public final static String FIGURE_CODE_KEY = "figurecode";
+    public final static String FIGURE_CODE_DEFAULT = "0011100001110011111111110111111111100111000011100";
     public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.main_void);
         FragmentManager fragmentManager = getFragmentManager(); FragmentTransaction fragmentTransaction = fragmentManager
                 .beginTransaction();
@@ -37,9 +42,15 @@ public class CKASPreference extends Activity {
         SharedPreferences.Editor editor = sharedPreferences.edit(); editor.putString(CKASPreference.FIGURE_CODE_KEY, figurecode); editor.commit();
     }
 
-    public void setPlayerNameDefault (String str) { SharedPreferences preferences =
-            PreferenceManager.getDefaultSharedPreferences(this); SharedPreferences.Editor editor = preferences.edit(); editor.putString(PLAYER_NAME_DEFAULT, str); editor.commit();
+    public static void setPlayerNameDefault(Context cont, String str) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cont);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(PLAYER_NAME_KEY, str);
+        editor.commit();
     }
 
+    public static String getPlayerNameKey(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(PLAYER_NAME_KEY, PLAYER_NAME_DEFAULT);
+    }
 
 }

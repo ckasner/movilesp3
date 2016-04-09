@@ -82,7 +82,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
 
         @Override
         public String getNombre() {
-            String name = "Persona";
+            String name = "hi";
 
 
             return name;
@@ -135,7 +135,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
                     // setup a dialog window
                     // TODO Poner las strings en strings.xml
                     alertDialogBuilder
-                            .setMessage("Enhorabuena "+ CKASPreference.PLAYER_NAME_DEFAULT +"!! Has Ganado!\n¿Quieres volver a jugar?")
+                            .setMessage("Enhorabuena "+ CKASPreference.getPlayerNameKey(JuegaActivity.this.getApplicationContext()) +"!! Has Ganado!\n¿Quieres volver a jugar?")
                             .setCancelable(false)
                             .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {

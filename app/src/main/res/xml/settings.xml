@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="Datos personales">
         <EditTextPreference
-        android:key="playerName"
+        android:key="playername"
         android:title="Nombre del jugador"
         android:summary="Pulse para teclear el nombre del jugador" />
     </PreferenceCategory>

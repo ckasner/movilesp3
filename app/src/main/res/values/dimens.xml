@@ -15,4 +15,9 @@
     <dimen name="longinPadding">18dp</dimen>
     <dimen name="loginFirstTextViewTextSize">25sp</dimen> <dimen name="loginFirstTextViewMarginBottom">20dp</dimen> <dimen name="loginButtonsMarginTop">18dp</dimen>
     <dimen name="mainTextViewMarginTop">20dp</dimen> <dimen name="mainTextViewTextSize">16sp</dimen>
+
+    <dimen name="accountFirstTextViewTextSize">25sp</dimen>
+    <dimen name="accountFirstTextViewMarginBottom">20dp</dimen>
+
+
 </resources>

@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <!--<activity
+        <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">
             <intent-filter>
@@ -28,7 +28,7 @@
 
             <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>-->
+        </activity>
         <activity
             android:name=".FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -47,8 +47,16 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>
+            <activity
+                android:name=".Account"
+                android:label="@string/accountFirstTextViewText">
+                <intent-filter>
+                    <action android:name="android.intent.action.KAS.ACCOUNT" />
 
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+            </activity>
+        </activity>
         <activity
             android:name=".CKASPreference" android:label="@string/title_activity_Preference" > <intent-filter>
             <action android:name="android.intent.action.KAS.PREF" />

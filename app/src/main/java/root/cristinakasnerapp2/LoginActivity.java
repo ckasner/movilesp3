@@ -1,4 +1,4 @@
-/*package root.cristinakasnerapp2
+package root.cristinakasnerapp2;
 import android.accounts.Account;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,7 +11,8 @@ import android.widget.EditText;
 
 import root.cristinakasnerapp2.DatabaseAdapter;
 
-public class Login extends Activity implements View.OnClickListener { private DatabaseAdapter db;
+public class LoginActivity extends Activity implements View.OnClickListener {
+    private DatabaseAdapter db;
     private EditText usernameEditText;
     private EditText passwordEditText;
     public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_login);
@@ -29,7 +30,8 @@ public class Login extends Activity implements View.OnClickListener { private Da
         db.open();
         boolean in = db.isRegistered(username, password); db.close();
         if (in){
-            CCCPreference.setPlayerName(Login.this, username); CCCPreference.setPlayerPassword(Login.this, password); startActivity(new Intent(this, MainActivity.class)); finish();
+            CKASPreference.setPlayerNameDefault(LoginActivity.this, username); CKASPreference.setPlayerPassword(LoginActivity.this, password);
+            startActivity(new Intent(this, JuegaActivity.class)); finish();
         }
         else {
             new AlertDialog.Builder(this) .setTitle(R.string.loginAlertDialogTitle) .setMessage(R.string.loginAlertDialogMessage) .setNeutralButton(R.string.loginAlertDialogNeutralButtonText,
@@ -48,4 +50,4 @@ public class Login extends Activity implements View.OnClickListener { private Da
             case R.id.loginNewUserButton:
                 startActivity(new Intent(this, Account.class));
                 break; }
-    } }*/
+    } }

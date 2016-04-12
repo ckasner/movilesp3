@@ -47,9 +47,12 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void irjugar(View view) {
+
+
         Intent intent = new Intent("android.intent.action.MAINACTIVITY");
         startActivity(intent);
     }
+
 
 
 

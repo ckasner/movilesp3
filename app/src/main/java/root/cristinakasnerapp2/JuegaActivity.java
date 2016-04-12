@@ -152,6 +152,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
                                         }
                                     });
                     // create an alert dialog
+
                     AlertDialog alertD = alertDialogBuilder.create();
                     alertD.show();
 

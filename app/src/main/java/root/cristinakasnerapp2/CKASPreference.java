@@ -15,6 +15,8 @@ public class CKASPreference extends AppCompatActivity {
     public final static boolean PLAY_MUSIC_DEFAULT = true;
     public final static String PLAYER_NAME_KEY = "playername";
     public final static String PLAYER_NAME_DEFAULT = "Persona";
+    public final static String PLAYER_PASS_KEY = "passkey";
+    public final static String PLAYER_PASS_DEF ="passdef";
     public final static String FIGURE_NAME_KEY = "figurename";
     public final static String FIGURE_NAME_DEFAULT = "completo";
     public final static String FIGURE_CODE_KEY = "figurecode";
@@ -51,6 +53,13 @@ public class CKASPreference extends AppCompatActivity {
 
     public static String getPlayerNameKey(Context context){
         return PreferenceManager.getDefaultSharedPreferences(context).getString(PLAYER_NAME_KEY, PLAYER_NAME_DEFAULT);
+    }
+
+    public static void setPlayerPassword(Context cont, String str) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cont);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(PLAYER_PASS_KEY, str);
+        editor.commit();
     }
 
 }

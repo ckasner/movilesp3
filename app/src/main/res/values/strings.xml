@@ -72,4 +72,16 @@
 en el que hemos de comer una a una las fichas saltando por encima de ellas, solo en vertical u horizontal, hacia la casilla adyacente que se encuentre vacía. El objetivo es dejar
 la última ficha en el centro del tablero, el
 lugar que comenzó libre.</string>
+    <string name="accountFirstTextViewText">Nuevo Usuario</string>
+    <string name="accountFirstEditTextHint">Nombre de Usuario</string>
+    <string name="accountSecondEditTextHint">Contraseña</string>
+    <string name="accountThirdEditTextHint">Confirme la contraseña</string>
+
+    <string name="accountAcceptButtonText">Aceptar</string>
+    <string name="accountCancelButtonText">Cancelar</string>
+    <string name="accountFirstToastMessage">Nuevo usuario creado correctamente</string>
+    <string name="accountSecondToastMessage">Debe rellenar todos los campos</string>
+    <string name="accountThirdToastMessage">Error al crear usuario</string>
+
+
 </resources>

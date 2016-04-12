@@ -1,2 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.2.1_405882a141563bae1ad7487d6a97ebd8a44d7787/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="afc349b2c65ed753a044c0294643053a04e8963b">
+        <dex dex="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_918a8e7b35ce65de51ba0de48cfe9f6166c0573d/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.2.1_73c72f5d2b89577ae18e1bd40cc2c56990470a18/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.2.1_fa09e9e5d590a6f86d2c02758e68abad9cb6e62a/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.2.1/jars/libs/internal_impl-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.2.1_08265c96e732dec6c0f417761558279d09b56bcd/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.2.1_d60ee595375c570456363face6c5050339616f69/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.2.1_5b9f6b2a22c791ed7685f692c727dd4b3a8cf75f/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/exploded-aar/com.android.support/design/23.2.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.2.1_2ad4bea1d1f08f729044a09a77e7ecffc895015c/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Jose/Kasner/o/movilesp3/app/libs/multijugador.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="cb98efc262ed7cebe11845a8e17fa20421284de9">
+        <dex dex="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/transforms/dex/debug/folders/1000/2/multijugador_fcefa80719d32d920798887408acbc5463dd56db/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="7823069504714f0253e0f097b1132fc7f1491094">
+        <dex dex="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_effb86c6c974829cbab14d888373de48f9e91102/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Jose/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="/Users/Jose/Kasner/o/movilesp3/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.2.1_55aed38b1c531ac70a59a5779bfd429638429903/classes.dex" />
+    </item>
+
+</items>

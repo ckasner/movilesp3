@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 public class CKASPreference extends AppCompatActivity {
     public final static String PLAY_MUSIC_KEY = "music";
     public final static boolean PLAY_MUSIC_DEFAULT = true;
+    public final static String FIGURE_COLOR_KEY = "colorkey";
+    public final static String FIGURE_COLOR_DEF = "rojo";
     public final static String PLAYER_NAME_KEY = "playername";
     public final static String PLAYER_NAME_DEFAULT = "Persona";
     public final static String PLAYER_PASS_KEY = "passkey";
@@ -61,5 +63,22 @@ public class CKASPreference extends AppCompatActivity {
         editor.putString(PLAYER_PASS_KEY, str);
         editor.commit();
     }
+
+    public static String getFigureColor(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(FIGURE_COLOR_KEY, FIGURE_COLOR_DEF);
+    }
+
+    public static String getPlayerPass(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(PLAYER_PASS_KEY, PLAYER_PASS_DEF);
+    }
+
+    public static void setFigureColor(Context cont, String str) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cont);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(FIGURE_COLOR_KEY, str);
+        editor.commit();
+    }
+
+
 
 }

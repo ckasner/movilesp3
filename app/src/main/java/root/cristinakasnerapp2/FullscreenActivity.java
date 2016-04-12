@@ -16,8 +16,9 @@ import android.view.View;
 public class FullscreenActivity extends AppCompatActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
-     * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
-     */
+     * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.*/
+
+
     private static final boolean AUTO_HIDE = true;
 
     /**
@@ -25,6 +26,7 @@ public class FullscreenActivity extends AppCompatActivity {
      * user interaction before hiding the system UI.
      */
     private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
+    private DatabaseAdapter db;
 
     /**
      * Some older devices needs a small delay between UI widget updates
@@ -89,10 +91,16 @@ public class FullscreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_fullscreen);
-
+        db = new DatabaseAdapter(this);
+        db.open();
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
+        CKASPreference.setPlayerNameDefault(this,"Def");
+        if(!db.isRegistered("Maquina","maquina")){
+            db.insertUser("Maquina","maquina");
+        }
+
 
 
         // Set up the user interaction to manually show or hide the system UI.

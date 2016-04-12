@@ -10,9 +10,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity {
-
+private DatabaseAdapter db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -45,12 +46,26 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = new Intent("android.intent.action.KAS.LOGIN");
         startActivity(intent);
     }
+    public void irpunt(View view) {
+        Intent intent = new Intent("android.intent.action.KAS.RATINGS");
+        startActivity(intent);
+    }
 
     public void irjugar(View view) {
+        db = new DatabaseAdapter(this);
+        db.open();
+        //Toast.makeText(this, CKASPreference.getPlayerNameKey(this)+ CKASPreference.getPlayerPass(this),
+               // Toast.LENGTH_LONG).show();
+        if(!CKASPreference.getPlayerNameKey(this).equals("Def")){
+            db.close();
+            Intent intent = new Intent("android.intent.action.MAINACTIVITY");
+            startActivity(intent);
 
-
-        Intent intent = new Intent("android.intent.action.MAINACTIVITY");
-        startActivity(intent);
+        }else {
+            db.close();
+            Intent intent = new Intent("android.intent.action.KAS.LOGIN");
+            startActivity(intent);
+        }
     }
 
 

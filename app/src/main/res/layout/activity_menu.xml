@@ -33,16 +33,6 @@
             android:theme="@style/menu_button"
             android:layout_marginBottom="3dp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/butt_ayuda"
-            android:id="@+id/button_ayuda"
-            android:onClick="irayuda"
-            android:layout_weight="0.06"
-            android:layout_gravity="center_horizontal"
-            android:theme="@style/menu_button"
-            android:layout_marginBottom="3dp" />
 
         <Button
             android:layout_width="match_parent"
@@ -66,16 +56,6 @@
             android:theme="@style/menu_button"
             android:layout_marginBottom="3dp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/butt_top"
-            android:id="@+id/button_top"
-            android:onClick="irtop"
-            android:layout_weight="0.06"
-            android:layout_gravity="center_horizontal"
-            android:theme="@style/menu_button"
-            android:layout_marginBottom="3dp" />
 
     </LinearLayout>
 

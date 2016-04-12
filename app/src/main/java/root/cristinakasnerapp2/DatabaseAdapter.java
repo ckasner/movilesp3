@@ -60,7 +60,8 @@ public class DatabaseAdapter {
         return db.query(UserTable.TABLE_NAME,
                 new String[] { UserTable.ID, UserTable.NAME, UserTable.PASSWORD }, null, null, null, null, null);
     }
-    public boolean isRegistered(String username, String password) { Cursor cursor = db.query(UserTable.TABLE_NAME,
+    public boolean isRegistered(String username, String password) {
+        Cursor cursor = db.query(UserTable.TABLE_NAME,
             new String[] { UserTable.NAME, UserTable.PASSWORD },
             UserTable.NAME + " = '" + username + "' AND " + UserTable.PASSWORD
                     + "= '" + password + "'", null, null, null, UserTable.NAME + " DESC");

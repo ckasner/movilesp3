@@ -6,11 +6,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +40,9 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
         TableroConecta4 tablero;
         ArrayList<Jugador> jugadores;
         TextView infotext;
+    private DatabaseAdapter db;
+    private Chronometer chronometer;
+    private int elapsedTime;
 
 
         //Partida game = new Partida();
@@ -59,6 +64,9 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
             tablero = new TableroConecta4();
             game = new Partida(tablero, jugadores);
             tableroView.setPartida(game);
+            chronometer = (Chronometer) findViewById(R.id.chronometer);
+            chronometer.setBase(SystemClock.elapsedRealtime());
+            chronometer.start();
             if(tablero.getEstado()== Tablero.EN_CURSO){
                 game.comenzar(tablero, jugadores);
 
@@ -121,6 +129,12 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
                     tableroView.invalidate();
                     break;
                 case Evento.EVENTO_FIN:
+                    String usnam ;
+                    if(tablero.getTurno()==0){
+                        usnam = CKASPreference.getPlayerNameKey(JuegaActivity.this.getApplicationContext());
+                    }else{
+                    usnam= new String("Maquina");
+                    }
 
                     tableroView.invalidate();
                     LayoutInflater layoutInflater = LayoutInflater.from(tableroView.getContext());
@@ -135,7 +149,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
                     // setup a dialog window
                     // TODO Poner las strings en strings.xml
                     alertDialogBuilder
-                            .setMessage("Enhorabuena "+ CKASPreference.getPlayerNameKey(JuegaActivity.this.getApplicationContext()) +"!! Has Ganado!\n¿Quieres volver a jugar?")
+                            .setMessage("Enhorabuena "+ usnam +"!! Has Ganado!\n¿Quieres volver a jugar?")
                             .setCancelable(false)
                             .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
@@ -154,6 +168,8 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
                     // create an alert dialog
 
                     AlertDialog alertD = alertDialogBuilder.create();
+                    stopChronometer();
+                    insertRound(usnam,tablero.getCasillasVacias());
                     alertD.show();
 
 
@@ -162,6 +178,23 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
             }
 
         }
+    private void insertRound(String username, int numberOfTilesLeft){
+        db = new DatabaseAdapter(this);
+        db.open();
+        db.insertData(username, elapsedTime, numberOfTilesLeft);
+        db.close();
+    }
+
+    private void stopChronometer (){
+        chronometer.stop();
+        String chronometerText = chronometer.getText().toString(); String array[] = chronometerText.split(":");
+        if (array.length == 2){
+            elapsedTime = Integer.parseInt(array[0]) * 60 +
+                    Integer.parseInt(array[1]); } else if (array.length == 3){
+            elapsedTime = Integer.parseInt(array[0]) * 60 * 60 + Integer.parseInt(array[1]) * 60 + Integer.parseInt(array[2]);
+        } }
+
+
 
     }
 

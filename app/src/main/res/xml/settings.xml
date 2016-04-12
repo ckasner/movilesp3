@@ -8,10 +8,7 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="Ajustes del juego">
         <ListPreference
-            android:key="figurecode"
-            android:title="Tipo de figura" android:summary="Pulse para mostrar la lista" android:entries="@array/figures" android:entryValues="@array/figureCodes" android:dialogTitle="Elija la figura inicial"/>
-        <CheckBoxPreference
-            android:key="music"
-            android:title="Música de fondo" android:summary="Marque si desea escuchar música"/>
+            android:key="colorkey"
+            android:title="Color de la figura" android:summary="Pulse para mostrar la lista" android:entries="@array/figures" android:entryValues="@array/figureCodes" android:dialogTitle="Elija el color"/>
     </PreferenceCategory>
 </PreferenceScreen>

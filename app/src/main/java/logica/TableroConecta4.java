@@ -1,10 +1,13 @@
 package logica;
 
+import android.widget.Chronometer;
+
 import java.util.ArrayList;
 
 import es.uam.eps.multij.ExcepcionJuego;
 import es.uam.eps.multij.Movimiento;
 import es.uam.eps.multij.Tablero;
+import root.cristinakasnerapp2.DatabaseAdapter;
 
 /**
  * Created by e264564 on 4/03/16.
@@ -16,6 +19,7 @@ public class TableroConecta4 extends Tablero {
     public int JALEAT = 2;
     public int FILAS = 6;
     public int COLS = 7;
+
 
 
 
@@ -93,6 +97,16 @@ public class TableroConecta4 extends Tablero {
         }
 
         return movsValidos;
+    }
+    public int getCasillasVacias(){
+        int result =0;
+        for(int i = 0; i<COLS; i++){
+            for (int j= 0; j<FILAS;j++){
+                if(tablero[j][i] == 0) result++;
+            }
+
+        }
+        return result;
     }
 
     public String tableroToString() {
@@ -249,4 +263,6 @@ public class TableroConecta4 extends Tablero {
     public void setEstado(int est){
         this.estado = est;
     }
+
+
 }

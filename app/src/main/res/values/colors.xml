@@ -6,7 +6,8 @@
     <color name="butonOscuro">#E57373</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorJAleat">#58D88E</color>
-    <color name="colorJHumano">#C46564</color>
+    <color name="colorJHumanorojo">#C46564</color>
+    <color name = "colorJHumanonaranja">#FC7B01</color>
     <color name="colorVacio">#F1D4AF</color>
     <color name="Fondo">#ECE5CE</color>
     <color name="colorTab">#EEB15B</color>

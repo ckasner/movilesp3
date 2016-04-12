@@ -14,6 +14,7 @@ import es.uam.eps.multij.Movimiento;
 import es.uam.eps.multij.Partida;
 import logica.MovimientoConecta4;
 import logica.TableroConecta4;
+import root.cristinakasnerapp2.CKASPreference;
 import root.cristinakasnerapp2.R;
 
 /**
@@ -102,7 +103,12 @@ public class TableroConecta4View extends View {
                 if (tab.tablero[i][j] == tab.VACIO) {
                     paint.setColor(getResources().getColor(R.color.colorVacio));
                 } else if (tab.tablero[i][j] == tab.JHUMANO) {
-                    paint.setColor(getResources().getColor(R.color.colorJHumano));
+                    if(CKASPreference.getFigureColor(this.getContext()).equals("rojo")){
+                        paint.setColor(getResources().getColor(R.color.colorJHumanorojo));
+                    }else{
+                        paint.setColor(getResources().getColor(R.color.colorJHumanonaranja));
+                    }
+
                 } else if (tab.tablero[i][j] == tab.JALEAT) {
                     paint.setColor(getResources().getColor(R.color.colorJAleat));
                 }

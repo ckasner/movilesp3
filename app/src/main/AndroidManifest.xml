@@ -24,9 +24,9 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">
             <intent-filter>
-            <action android:name="android.intent.action.KAS.LOGIN" />
+                <action android:name="android.intent.action.KAS.LOGIN" />
 
-            <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -40,27 +40,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity"
+        <activity
+            android:name=".MenuActivity"
             android:label="@string/menu_text">
             <intent-filter>
                 <action android:name="android.intent.action.KAS.MENU" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-            <activity
-                android:name=".Account"
-                android:label="@string/accountFirstTextViewText">
-                <intent-filter>
-                    <action android:name="android.intent.action.KAS.ACCOUNT" />
-
-                    <category android:name="android.intent.category.DEFAULT" />
-                </intent-filter>
-            </activity>
         </activity>
         <activity
-            android:name=".CKASPreference" android:label="@string/title_activity_Preference" > <intent-filter>
-            <action android:name="android.intent.action.KAS.PREF" />
-            <category android:name="android.intent.category.DEFAULT" /> </intent-filter>
+            android:name=".Account"
+            android:label="@string/accountFirstTextViewText">
+            <intent-filter>
+                <action android:name="android.intent.action.KAS.ACCOUNT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CKASPreference"
+            android:label="@string/title_activity_Preference">
+            <intent-filter>
+                <action android:name="android.intent.action.KAS.PREF" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ratings">
+            <intent-filter>
+                <action android:name="android.intent.action.KAS.RATINGS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 

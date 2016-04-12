@@ -30,7 +30,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         db.open();
         boolean in = db.isRegistered(username, password); db.close();
         if (in){
-            CKASPreference.setPlayerNameDefault(LoginActivity.this, username); CKASPreference.setPlayerPassword(LoginActivity.this, password);
+            CKASPreference.setPlayerNameDefault(LoginActivity.this, username);
+            CKASPreference.setPlayerPassword(LoginActivity.this, password);
             startActivity(new Intent(this, JuegaActivity.class)); finish();
         }
         else {
@@ -48,6 +49,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
                 finish();
                 break;
             case R.id.loginNewUserButton:
-                startActivity(new Intent(this, Account.class));
+                startActivity(new Intent("android.intent.action.KAS.ACCOUNT"));
                 break; }
     } }

@@ -85,6 +85,9 @@ lugar que comenzó libre.</string>
     <string name="accountFirstToastMessage">Nuevo usuario creado correctamente</string>
     <string name="accountSecondToastMessage">Debe rellenar todos los campos</string>
     <string name="accountThirdToastMessage">Error al crear usuario</string>
+    <string name="butt_nuevaPartida">Nueva Partida</string>
+    <string name="butt_unirPartida">Unirse a partida creada</string>
+    <string name="title_activity_Partidas">Elije Partida</string>
 
 
 </resources>

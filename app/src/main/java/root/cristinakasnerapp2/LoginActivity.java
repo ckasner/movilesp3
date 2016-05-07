@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 
 import root.cristinakasnerapp2.DatabaseAdapter;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
-    private DatabaseAdapter db;
+
     private EditText usernameEditText;
     private EditText passwordEditText;
     public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_login);
@@ -25,21 +29,30 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         Button newUserButton=(Button)findViewById(R.id.loginNewUserButton);
         newUserButton.setOnClickListener(this); }
     private void check(){
-        String username = usernameEditText.getText().toString(); String password = passwordEditText.getText().toString();
-        db=new DatabaseAdapter(this);
-        db.open();
-        boolean in = db.isRegistered(username, password); db.close();
-        if (in){
-            CKASPreference.setPlayerNameDefault(LoginActivity.this, username);
-            CKASPreference.setPlayerPassword(LoginActivity.this, password);
-            startActivity(new Intent(this, JuegaActivity.class)); finish();
-        }
-        else {
-            new AlertDialog.Builder(this) .setTitle(R.string.loginAlertDialogTitle) .setMessage(R.string.loginAlertDialogMessage) .setNeutralButton(R.string.loginAlertDialogNeutralButtonText,
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {}
-                    }).show();
-        } }
+        final String username = usernameEditText.getText().toString();
+        final String password = passwordEditText.getText().toString();
+        Response.Listener<String> listener = new Response.Listener<String>(){ @Override
+        public void onResponse(String response) {
+
+
+            if(response.equals("-1")){
+
+                Toast.makeText(LoginActivity.this, "Fallo de autenticación",Toast.LENGTH_SHORT).show();
+            }else{
+                CKASPreference.setPlayerNameDefault(LoginActivity.this, username);
+                CKASPreference.setPlayerPassword(LoginActivity.this, password);
+                CKASPreference.setPlayerId(LoginActivity.this, response);
+
+                Intent intent = new Intent("android.intent.action.MENUPARTIDAS");
+                startActivity(intent);
+            }
+
+        } };
+        Response.ErrorListener errorListener = new Response.ErrorListener(){ @Override
+        public void onErrorResponse(VolleyError error) {
+        } };
+        InterfazConServidor.getServer(this).login(username, password,listener, errorListener);
+     }
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.loginLoginButton:

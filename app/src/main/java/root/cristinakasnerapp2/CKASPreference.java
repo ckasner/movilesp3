@@ -17,7 +17,15 @@ public class CKASPreference extends AppCompatActivity {
     public final static String FIGURE_COLOR_DEF = "rojo";
     public final static String PLAYER_NAME_KEY = "playername";
     public final static String PLAYER_NAME_DEFAULT = "Persona";
-    public final static String PLAYER_PASS_KEY = "passkey";
+    public final static String PLAYER_ID_KEY = "playerid";
+    public final static String PLAYER_ID_DEFAULT = "00";
+    public final static String GAME_ID_KEY = "gameid";
+    public final static String GAME_ID_DEFAULT = "77";
+    public final static String PARTIDA_ID_KEY = "partidaid";
+    public final static String PARTIDA_ID_DEFAULT = "00";
+    public final static String NUM_PLAYERS_KEY = "numberofplayers";
+    public final static String NUM_PLAYERS_DEFAULT = "1";
+    public final static String PLAYER_PASS_KEY = "playerpassword";
     public final static String PLAYER_PASS_DEF ="passdef";
     public final static String FIGURE_NAME_KEY = "figurename";
     public final static String FIGURE_NAME_DEFAULT = "completo";
@@ -57,10 +65,36 @@ public class CKASPreference extends AppCompatActivity {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(PLAYER_NAME_KEY, PLAYER_NAME_DEFAULT);
     }
 
+    public static String getPlayerIdKey(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(PLAYER_ID_KEY, PLAYER_ID_DEFAULT);
+    }
+
+    public static String getGameIdKey(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(GAME_ID_KEY, GAME_ID_DEFAULT);
+    }
+    public static String getPartidaIdKey(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(PARTIDA_ID_KEY, PARTIDA_ID_DEFAULT);
+    }
+
+
     public static void setPlayerPassword(Context cont, String str) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cont);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(PLAYER_PASS_KEY, str);
+        editor.commit();
+    }
+
+    public static void setPlayerId(Context cont, String str) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cont);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(PLAYER_ID_KEY, str);
+        editor.commit();
+    }
+
+    public static void setPartidaId(Context cont, String str) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cont);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(PARTIDA_ID_KEY, str);
         editor.commit();
     }
 

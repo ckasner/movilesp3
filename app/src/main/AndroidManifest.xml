@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -70,6 +72,24 @@
         <activity android:name=".ratings">
             <intent-filter>
                 <action android:name="android.intent.action.KAS.RATINGS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MenuJuegaActivity"
+            android:label="@string/title_activity_Partidas">
+            <intent-filter>
+                <action android:name="android.intent.action.MENUPARTIDAS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PartidasComenzadasActivity"
+            android:label="@string/title_activity_Partidas">
+            <intent-filter>
+                <action android:name="android.intent.action.KAS.PARTIDASCOMENZADAS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

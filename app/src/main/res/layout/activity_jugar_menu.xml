@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/Fondo"
-    tools:context="root.cristinakasnerapp2.MenuActivity">
+    tools:context="root.cristinakasnerapp2.MenuJuegaActivity">
 
 
     <LinearLayout
@@ -25,9 +25,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/butt_jugar"
-            android:id="@+id/button_jugar"
-            android:onClick="irpartidas"
+            android:text="@string/butt_nuevaPartida"
+            android:id="@+id/button_nuevaPartida"
+            android:onClick="irjugar"
             android:layout_weight="0.06"
             android:layout_gravity="center_horizontal"
             android:theme="@style/menu_button"
@@ -37,24 +37,14 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/butt_login"
-            android:id="@+id/button_login"
-            android:onClick="irlogin"
+            android:text="@string/butt_unirPartida"
+            android:id="@+id/button_unirPartida"
+            android:onClick="irPartidasComenzadas"
             android:layout_weight="0.06"
             android:layout_gravity="center_horizontal"
             android:theme="@style/menu_button"
             android:layout_marginBottom="3dp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/butt_punt"
-            android:id="@+id/button_punt"
-            android:onClick="irpunt"
-            android:layout_weight="0.06"
-            android:layout_gravity="center_horizontal"
-            android:theme="@style/menu_button"
-            android:layout_marginBottom="3dp" />
 
 
     </LinearLayout>

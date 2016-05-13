@@ -3,17 +3,27 @@ package root.cristinakasnerapp2;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class MenuActivity extends AppCompatActivity {
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
 
+import java.io.IOException;
+
+
+public class MenuActivity extends AppCompatActivity {
+    String SENDERIDGCM = "125442492416";
+    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -40,6 +50,13 @@ public class MenuActivity extends AppCompatActivity {
             }
         };
         prefs.registerOnSharedPreferenceChangeListener(listener);*/
+        if (checkPlayServices()){
+
+            if ( CKASPreference.getDevID(this).equals("unregistered") ) {
+
+                registerInBackground();
+            }
+        }
     }
 
     public void irlogin(View view) {
@@ -86,4 +103,41 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true; }
         return super.onOptionsItemSelected(item); }
+
+
+    private void registerInBackground() { new AsyncTask() {
+        @Override
+        protected Object doInBackground(Object[] params) {
+            String id = "";
+            try {
+
+                GoogleCloudMessaging gcm = GoogleCloudMessaging .getInstance(MenuActivity.this);
+                // Nos registramos en los servidores de GCM
+
+                id = gcm.register(SENDERIDGCM);
+                // Este id hay que guardarlo de forma persistente
+                //   Guardamos el id en las preferencias junto con
+                //   la versión de la app
+
+                CKASPreference.setDevID(MenuActivity.this,id);
+
+            } catch (IOException ex) {
+                Log.d("GCM REGISTER:", "Error registro en GCM:" + ex.getMessage());
+            }
+            return id; }
+    }.execute(null, null, null);
+    }
+
+    private boolean checkPlayServices() {
+        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
+                GooglePlayServicesUtil.getErrorDialog(resultCode, this, PLAY_SERVICES_RESOLUTION_REQUEST).show();
+            } else {
+                Log.i("ERROR", "This device is not supported.");
+                finish();
+            }
+            return false;
+        }
+        return true; }
 }

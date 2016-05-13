@@ -42,14 +42,14 @@ public class InterfazConServidor {
         queue.add(request);
 
     }
-    public void login(final String playername, final String playerpassword,
+    public void login(final String playername, final String playerpassword,final String gcmregid,
                       Listener<String> callback, ErrorListener errorCallback) {
         String url = BASE_URL + ACCOUNT_PHP; Log.d(DEBUG_TAG, url);
         StringRequest request = new StringRequest(Request.Method.POST, url, callback, errorCallback) {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put(CKASPreference.PLAYER_NAME_KEY, playername);
-                params.put(CKASPreference.PLAYER_PASS_KEY, playerpassword);
+                params.put(CKASPreference.PLAYER_PASS_KEY, playerpassword);params.put(CKASPreference.DEV_ID_KEY,gcmregid);
                 params.put("login", "");
                 return params;
             }

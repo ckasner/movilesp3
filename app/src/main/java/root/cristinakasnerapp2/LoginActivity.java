@@ -51,7 +51,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         Response.ErrorListener errorListener = new Response.ErrorListener(){ @Override
         public void onErrorResponse(VolleyError error) {
         } };
-        InterfazConServidor.getServer(this).login(username, password,listener, errorListener);
+        InterfazConServidor.getServer(this).login(username, password,CKASPreference.getDevID(this),listener, errorListener);
      }
     public void onClick(View v) {
         switch (v.getId()) {

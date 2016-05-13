@@ -40,7 +40,8 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
         TableroConecta4 tablero;
         ArrayList<Jugador> jugadores;
         TextView infotext;
-    private DatabaseAdapter db;
+    public static final String J_INVITADO="jinvitado";
+    public static final String J_HOST="jhost";
     private Chronometer chronometer;
     private int elapsedTime;
 
@@ -169,7 +170,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
 
                     AlertDialog alertD = alertDialogBuilder.create();
                     stopChronometer();
-                    insertRound(usnam,tablero.getCasillasVacias());
+
                     alertD.show();
 
 
@@ -178,12 +179,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
             }
 
         }
-    private void insertRound(String username, int numberOfTilesLeft){
-        db = new DatabaseAdapter(this);
-        db.open();
-        db.insertData(username, elapsedTime, numberOfTilesLeft);
-        db.close();
-    }
+
 
     private void stopChronometer (){
         chronometer.stop();

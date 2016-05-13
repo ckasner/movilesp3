@@ -20,7 +20,7 @@ public class CKASPreference extends AppCompatActivity {
     public final static String PLAYER_ID_KEY = "playerid";
     public final static String PLAYER_ID_DEFAULT = "00";
     public final static String GAME_ID_KEY = "gameid";
-    public final static String GAME_ID_DEFAULT = "77";
+    public final static String GAME_ID_DEFAULT = "111";
     public final static String PARTIDA_ID_KEY = "partidaid";
     public final static String PARTIDA_ID_DEFAULT = "00";
     public final static String NUM_PLAYERS_KEY = "numberofplayers";
@@ -31,6 +31,8 @@ public class CKASPreference extends AppCompatActivity {
     public final static String FIGURE_NAME_DEFAULT = "completo";
     public final static String FIGURE_CODE_KEY = "figurecode";
     public final static String FIGURE_CODE_DEFAULT = "0011100001110011111111110111111111100111000011100";
+    public final static String DEV_ID_KEY = "gcmregid";
+    public final static String DEV_ID_DEFAULT = "unregistered";
     public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.main_void);
         FragmentManager fragmentManager = getFragmentManager(); FragmentTransaction fragmentTransaction = fragmentManager
                 .beginTransaction();
@@ -113,6 +115,15 @@ public class CKASPreference extends AppCompatActivity {
         editor.commit();
     }
 
+    public static String getDevID(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(DEV_ID_KEY, DEV_ID_DEFAULT);
+    }
 
+    public static void setDevID(Context cont, String str) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cont);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(DEV_ID_KEY, str);
+        editor.commit();
+    }
 
 }

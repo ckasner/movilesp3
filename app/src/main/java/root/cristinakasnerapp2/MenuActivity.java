@@ -64,8 +64,14 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void irpunt(View view) {
-        Intent intent = new Intent("android.intent.action.KAS.RATINGS");
-        startActivity(intent);
+        if(!CKASPreference.getPlayerNameKey(this).equals("Def")) {
+            Intent intent = new Intent("android.intent.action.KAS.RATINGS");
+            startActivity(intent);
+        }else {
+            Toast.makeText(MenuActivity.this, "Debe registrarse para ver las puntuaciones",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent("android.intent.action.KAS.LOGIN");
+            startActivity(intent);
+        }
     }
 
     public void irpartidas(View view) {
@@ -112,12 +118,10 @@ public class MenuActivity extends AppCompatActivity {
             try {
 
                 GoogleCloudMessaging gcm = GoogleCloudMessaging .getInstance(MenuActivity.this);
-                // Nos registramos en los servidores de GCM
+
 
                 id = gcm.register(SENDERIDGCM);
-                // Este id hay que guardarlo de forma persistente
-                //   Guardamos el id en las preferencias junto con
-                //   la versión de la app
+
 
                 CKASPreference.setDevID(MenuActivity.this,id);
 

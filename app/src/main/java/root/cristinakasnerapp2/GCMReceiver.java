@@ -41,11 +41,18 @@ public class GCMReceiver extends BroadcastReceiver {
                         broad.putExtras(intent);
                         context.sendBroadcast(broad);
                     }else if(extras.getString("content").contains("//M")){
-                        Toast.makeText(context, extras.getString("content"), Toast.LENGTH_LONG).show();
+
                         Intent broadc = new Intent(JuegaActivity.STRING_MOV);
                         broadc.putExtras(intent);
 
                         context.sendBroadcast(broadc);
+                    }else if(extras.getString("content").equals("//B")){
+                        Toast.makeText(context, "Tu oponente ha abandonado la partida", Toast.LENGTH_LONG).show();
+                        Intent broad = new Intent(JuegaActivity.STRING_DESCONECTADO);
+                        broad.putExtras(intent);
+                        context.sendBroadcast(broad);
+                    }else{
+                        Toast.makeText(context, extras.getString("sender") + ": " + extras.getString("content"), Toast.LENGTH_LONG).show();
                     }
                     break;
                 case "3":

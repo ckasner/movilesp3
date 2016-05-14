@@ -20,7 +20,7 @@ public class CKASPreference extends AppCompatActivity {
     public final static String PLAYER_ID_KEY = "playerid";
     public final static String PLAYER_ID_DEFAULT = "00";
     public final static String GAME_ID_KEY = "gameid";
-    public final static String GAME_ID_DEFAULT = "111";
+    public final static String GAME_ID_DEFAULT = "117";
     public final static String ROUND_ID_KEY = "roundid";
     public final static String ROUND_ID_DEFAULT = "00";
     public final static String NUM_PLAYERS_KEY = "numberofplayers";

@@ -255,7 +255,7 @@ public class TableroConecta4 extends Tablero {
         Log.d("TabTOString",tableroToString());
         this.turno=Character.getNumericValue(cadena.charAt(42));
         this.setEstado(Character.getNumericValue(cadena.charAt(43)));
-        this.numJugadas= Character.getNumericValue(cadena.charAt(44));
+        this.numJugadas= Integer.parseInt(cadena.substring(44));
     }
 
     public String toString() {

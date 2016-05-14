@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,9 +51,11 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
     public static final String J_INVITADO="jinvitado";
     public static final String J_HOST="jhost";
     public static final String STRING_UNIDO = "root.cristinakasnerapp2.UNIDO";
+    public static final String STRING_DESCONECTADO = "root.cristinakasnerapp2.DESCONECTADO";
     private String playerad;
     BroadcastReceiver UNIDOrecv;
     BroadcastReceiver MOVrecv;
+    BroadcastReceiver DESCrecv;
     private Chronometer chronometer;
     JugadorRemoto jugadorRemoto;
     private int elapsedTime;
@@ -60,6 +63,12 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
     public boolean TURNO;
     private Response.Listener<String> listeneraddresult;
     private Response.ErrorListener errorlisteneraddresult;
+    private EditText mensaje;
+    private Response.Listener<String> listenerSendText;
+    private Response.ErrorListener errorlistenerSendText;
+    private TextView mensajeEsperar;
+    private Chronometer cronometro;
+    private TextView botonEnv;
 
 
     //Partida game = new Partida();
@@ -84,6 +93,18 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
             tableroView.setPartida(game);
 
             tableroView.setVisibility(View.INVISIBLE);
+            mensajeEsperar = (TextView) findViewById(R.id.TextEsperar);
+            mensajeEsperar.setVisibility(View.VISIBLE);
+
+            cronometro = (Chronometer) findViewById(R.id.chronometer);
+            cronometro.setVisibility(View.INVISIBLE);
+
+            botonEnv = (TextView) findViewById(R.id.botonEnviar);
+            botonEnv.setVisibility(View.INVISIBLE);
+
+            mensaje=(EditText)findViewById(R.id.textEnviar);
+            mensaje.setVisibility(View.INVISIBLE);
+
             if(tipo.equals(JuegaActivity.J_INVITADO)){
                 //el jugador se ha unido
                 playerad=new String(intent.getExtras().getString("adversario"));
@@ -118,6 +139,20 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
                 movimientoRecibido(extras);
             }
         };
+
+        DESCrecv = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+
+                Bundle extras = intent.getExtras();
+                desconectadoRecibido(extras);
+            }
+        };
+    }
+
+    private void desconectadoRecibido(Bundle extras) {
+        Intent intent = new Intent("android.intent.action.MENUPARTIDAS");
+        startActivity(intent);
     }
 
     private void movimientoRecibido(Bundle extras) {
@@ -148,7 +183,15 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
 
                 alertDialogBuilder
                         .setMessage("Has perdido :(")
-                        .setCancelable(true);
+                        .setCancelable(true)
+                        .setPositiveButton("Volver al menu", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // get user input and set it to result
+                                Intent intent = new Intent("android.intent.action.KAS.MENU");
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
                 // create an alert dialog
 
                 AlertDialog alertD = alertDialogBuilder.create();
@@ -214,7 +257,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
                     break;
                 case Evento.EVENTO_FIN:
                     String usnam ;
-                    if(tablero.getTurno()==0){
+                    if(TURNO==true){
                         usnam = CKASPreference.getPlayerNameKey(JuegaActivity.this.getApplicationContext());
                     }else{
                     usnam= new String("Maquina");
@@ -234,7 +277,14 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
                     // TODO Poner las strings en strings.xml
                     alertDialogBuilder
                             .setMessage("Enhorabuena "+ usnam +"!! Has Ganado! :)")
-                            .setCancelable(true);
+                            .setCancelable(true).setPositiveButton("Volver al menu", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // get user input and set it to result
+                            Intent intent = new Intent("android.intent.action.KAS.MENU");
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
                     // create an alert dialog
 
                     AlertDialog alertD = alertDialogBuilder.create();
@@ -267,7 +317,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
         // y registramos el recibidor para recibir respuestas
         registerReceiver(UNIDOrecv, new IntentFilter(STRING_UNIDO));
         registerReceiver(MOVrecv, new IntentFilter(STRING_MOV));
-
+        registerReceiver(DESCrecv, new IntentFilter(STRING_DESCONECTADO));
         // Truco sencillo para saber si la actividad está en primer plano
         //Board.enPrimerPlano = true;
     }
@@ -299,7 +349,16 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
             jugadores.add(jugadorRemoto);
             jugadores.add(JuegaActivity.this);
         }
+        mensajeEsperar = (TextView) findViewById(R.id.TextEsperar);
+        mensajeEsperar.setVisibility(View.INVISIBLE);
+        cronometro = (Chronometer) findViewById(R.id.chronometer);
+        cronometro.setVisibility(View.VISIBLE);
 
+        botonEnv = (TextView) findViewById(R.id.botonEnviar);
+        botonEnv.setVisibility(View.VISIBLE);
+
+        mensaje=(EditText)findViewById(R.id.textEnviar);
+        mensaje.setVisibility(View.VISIBLE);
         tableroView.setVisibility(View.VISIBLE);
         chronometer = (Chronometer) findViewById(R.id.chronometer);
         chronometer.setBase(SystemClock.elapsedRealtime());
@@ -325,6 +384,61 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
         }
 
     }
+
+    public void enviarMensaje(View view){
+        listenerSendText = new Response.Listener<String>(){ @Override
+        public void onResponse(String response) {
+            if(response.equals("-1")) Toast.makeText(JuegaActivity.this, "Error al añadir el resultado",Toast.LENGTH_SHORT).show();
+            else{
+                Log.d("ADDRESULT",response);
+            }
+        } };
+        errorlistenerSendText = new Response.ErrorListener(){ @Override
+        public void onErrorResponse(VolleyError error) {
+        } };
+        mensaje=(EditText)findViewById(R.id.textEnviar);
+        if(mensaje.getText().toString().length()>=140){
+            Toast.makeText(JuegaActivity.this, "El mensaje es mas largo que 140 caracteres",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        InterfazConServidor.getServer(this).sendMessage(CKASPreference.getADname(this),mensaje.getText().toString(),CKASPreference.getPlayerIdKey(this),listenerSendText,errorlistenerSendText);
+        mensaje.setText("");
+    }
+
+    protected void onStop() {
+        super.onStop();
+        if (isFinishing()&& game.getTablero().getEstado()==Tablero.EN_CURSO) {
+
+            Response.Listener<String> stoplistener = new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    if (response.equals("-1"))
+                        Toast.makeText(JuegaActivity.this, "Error al conectarse con el servidor", Toast.LENGTH_SHORT).show();
+                    else {
+                        Log.d("ONSTOP", response);
+                    }
+                }
+            };
+            Response.ErrorListener errorStopListener = new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                }
+            };
+            InterfazConServidor.getServer(this).removeplayerfromround(CKASPreference.getPartidaIdKey(this), CKASPreference.getPlayerIdKey(this), stoplistener, errorStopListener);
+            InterfazConServidor.getServer(this).sendMessage(CKASPreference.getADname(this), "//B", CKASPreference.getPlayerIdKey(this), stoplistener, errorStopListener);
+        }else{
+
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(UNIDOrecv);
+        unregisterReceiver(MOVrecv);
+    }
+
 
 
     }

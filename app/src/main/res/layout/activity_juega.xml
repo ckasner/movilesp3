@@ -7,11 +7,28 @@
     android:background="@color/Fondo"
     tools:context="root.cristinakasnerapp2.JuegaActivity">
 
-
-<!--    <TextView
-        android:layout_width="fill_parent"
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name" />-->
+        android:text="Enviar"
+        android:onClick="enviarMensaje"
+        android:id="@+id/botonEnviar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/board" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textEnviar"
+        android:layout_below="@+id/board"
+        android:layout_toRightOf="@+id/chronometer"
+        android:layout_alignParentBottom="true"
+        android:accessibilityLiveRegion="assertive"
+        android:layout_toLeftOf="@+id/botonEnviar"
+        android:layout_toStartOf="@+id/botonEnviar" />
 
     <vista.TableroConecta4View
         android:id="@+id/board"
@@ -25,7 +42,15 @@
 
     <Chronometer android:id="@+id/chronometer" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_gravity="center"/>
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Esperando a que se una otro jugador..."
+        android:id="@+id/TextEsperar"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/chronometer"
+        android:layout_toEndOf="@+id/chronometer"
+        />
 
 
 </RelativeLayout>

@@ -31,6 +31,7 @@ public class InterfazConServidor {
     private static InterfazConServidor serverInterface;
     private static final String ADDRESULT_PHP = "addresult.php";
     private static final String GETRESULTS_PHP = "getresults.php";
+    private static final String REMOVEPLAYER_PHP = "removeplayerfromround.php";
 
     private InterfazConServidor(Context context) {
         queue = Volley.newRequestQueue(context); }
@@ -181,4 +182,15 @@ public class InterfazConServidor {
         queue.add(jsObjRequest);
     }
 
+    public void removeplayerfromround(final String roundid, final String playerid ,Listener<String> callback, ErrorListener errorCallback) {
+        String url = BASE_URL + REMOVEPLAYER_PHP; Log.d(DEBUG_TAG, url);
+        StringRequest request = new StringRequest(Request.Method.POST, url, callback, errorCallback) {
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put(CKASPreference.PLAYER_ID_KEY, playerid);
+                params.put(CKASPreference.ROUND_ID_KEY, roundid);
+                return params;
+            }
+        };
+        queue.add(request); }
 }

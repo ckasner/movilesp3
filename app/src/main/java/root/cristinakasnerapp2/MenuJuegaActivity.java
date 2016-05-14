@@ -20,7 +20,7 @@ public class MenuJuegaActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jugar_menu);
-        Toast.makeText(MenuJuegaActivity.this, CKASPreference.getDevID(this),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(MenuJuegaActivity.this, CKASPreference.getDevID(this),Toast.LENGTH_SHORT).show();
     }
 
     public void irPartidasComenzadas(View view) {

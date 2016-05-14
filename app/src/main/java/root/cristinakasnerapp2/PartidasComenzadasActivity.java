@@ -97,7 +97,7 @@ public class PartidasComenzadasActivity extends AppCompatActivity {
                     final Response.Listener<String> listener2 = new Response.Listener<String>(){ @Override
                     public void onResponse(String response) {
                         if(response.equals("-1")){
-                            Toast.makeText(PartidasComenzadasActivity.this, "Error al notificar la unión",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(PartidasComenzadasActivity.this, "Error al unirse a la partida",Toast.LENGTH_SHORT).show();
                         }else{
                             Intent intent = new Intent("android.intent.action.MAINACTIVITY");
                             intent.putExtra("tipo",JuegaActivity.J_INVITADO);

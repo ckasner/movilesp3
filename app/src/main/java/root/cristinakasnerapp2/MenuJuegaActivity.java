@@ -31,38 +31,6 @@ public class MenuJuegaActivity extends AppCompatActivity {
 
     public void irjugar(View view) {
 
-        //Toast.makeText(this, CKASPreference.getPlayerNameKey(this)+ CKASPreference.getPlayerPass(this),
-        // Toast.LENGTH_LONG).show();
-    //Creo la nueva parida
-        /*final Response.Listener<JSONArray> listenerJSON =  new Response.Listener<JSONArray>()
-        {
-            @Override public void onResponse(JSONArray response) {
-                for(int i = 0; i < response.length(); i++){
-                    JSONObject jresponse = null;
-                    try {
-                        jresponse = response.getJSONObject(i);
-                        String partidaid = jresponse.getString(CKASPreference.PARTIDA_ID_KEY);
-                        if(partidaid.equals(CKASPreference.getPartidaIdKey(MenuJuegaActivity.this))){
-                            String numPlayers=jresponse.getString(CKASPreference.NUM_PLAYERS_KEY);
-                        }
-                        Log.d("partidaid", partidaid);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-
-                }
-                Log.d("Response", response.toString());
-            }
-        };
-        final Response.ErrorListener listenerJSONerror=
-        new Response.ErrorListener()
-        {
-            @Override public void onErrorResponse(VolleyError error) {
-                Log.d("Error.Response", error.toString());
-            }
-        }
-        ;*/
         Response.Listener<String> listener = new Response.Listener<String>(){ @Override
         public void onResponse(String response) {
 

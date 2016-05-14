@@ -76,8 +76,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void irpartidas(View view) {
 
-        //Toast.makeText(this, CKASPreference.getPlayerNameKey(this)+ CKASPreference.getPlayerPass(this),
-               // Toast.LENGTH_LONG).show();
+
         if(!CKASPreference.getPlayerNameKey(this).equals("Def")){
 
             Intent intent = new Intent("android.intent.action.MENUPARTIDAS");

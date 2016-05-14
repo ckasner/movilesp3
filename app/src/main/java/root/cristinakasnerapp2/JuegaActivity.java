@@ -84,11 +84,11 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
             //Jugador jugadorAleatorio = new JugadorAleatorio("Máquina");
             tableroView = (TableroConecta4View)findViewById(R.id.board);
             jugadores = new ArrayList<Jugador>();
-            //infotext.setTypeface(monospace);
+
             tableroView.setOnPlayListener(this);
             tablero = new TableroConecta4();
 
-            //jugadores.add(jugadorRemoto);
+
             game = new Partida(tablero, jugadores);
             tableroView.setPartida(game);
 
@@ -106,7 +106,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
             mensaje.setVisibility(View.INVISIBLE);
 
             if(tipo.equals(JuegaActivity.J_INVITADO)){
-                //el jugador se ha unido
+
                 playerad=new String(intent.getExtras().getString("adversario"));
                 CKASPreference.setADname(this,playerad);
                 Toast.makeText(this,"¡Te has unido a la partida de "+playerad+"!",Toast.LENGTH_SHORT).show();
@@ -314,12 +314,11 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
         super.onResume();
 
 
-        // y registramos el recibidor para recibir respuestas
+
         registerReceiver(UNIDOrecv, new IntentFilter(STRING_UNIDO));
         registerReceiver(MOVrecv, new IntentFilter(STRING_MOV));
         registerReceiver(DESCrecv, new IntentFilter(STRING_DESCONECTADO));
-        // Truco sencillo para saber si la actividad está en primer plano
-        //Board.enPrimerPlano = true;
+
     }
 
     public void joinedGame(Bundle data){
@@ -327,9 +326,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
         playerad= new String(data.getString("sender"));
         CKASPreference.setADname(this,playerad);
         Toast.makeText(this,"¡"+playerad+" se ha unido!",Toast.LENGTH_SHORT).show();
-        //roundinfotextview.setText("La partida contra "+adversario+" va a comenzar");
-        //esMiTurno=true;
-        //jugadorRemoto=new JugadorRemoto(playerad);
+
         startGame();
     }
 
@@ -338,7 +335,7 @@ public class JuegaActivity extends AppCompatActivity implements OnPlayListener,J
 
         tableroView = (TableroConecta4View)findViewById(R.id.board);
 
-        //infotext.setTypeface(monospace);
+
         tableroView.setOnPlayListener(this);
         tablero = new TableroConecta4();
         jugadorRemoto = new JugadorRemoto(CKASPreference.getADname(this),this);

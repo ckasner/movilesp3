@@ -16,4 +16,5 @@
 
 
     <color name="black_overlay">#66000000</color>
+    <color name="header_top_scores_color">#000000</color>
 </resources>

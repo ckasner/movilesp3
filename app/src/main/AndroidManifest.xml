@@ -70,7 +70,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ratings">
+        <activity android:name=".Scores">
             <intent-filter>
                 <action android:name="android.intent.action.KAS.RATINGS" />
 

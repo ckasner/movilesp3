@@ -51,7 +51,7 @@ public class PartidasComenzadasActivity extends AppCompatActivity {
                     JSONObject jresponse = null;
                     try {
                         jresponse = response.getJSONObject(i);
-                        String partidaid = jresponse.getString(CKASPreference.PARTIDA_ID_KEY);
+                        String partidaid = jresponse.getString(CKASPreference.ROUND_ID_KEY);
                         String playername = jresponse.getString("playernames");
                         if(playername.equals(CKASPreference.getPlayerNameKey(PartidasComenzadasActivity.this))){
                             continue;
@@ -88,7 +88,7 @@ public class PartidasComenzadasActivity extends AppCompatActivity {
                 int auxint;
                 roundid=list_rond.get(arg2);
                 adversary=list_jug.get(arg2);
-                CKASPreference.setPartidaId(PartidasComenzadasActivity.this,roundid);
+                CKASPreference.setRoundId(PartidasComenzadasActivity.this,roundid);
                 final Response.ErrorListener errorListener = new Response.ErrorListener(){ @Override
                 public void onErrorResponse(VolleyError error) {
                 } };
@@ -100,7 +100,7 @@ public class PartidasComenzadasActivity extends AppCompatActivity {
                             Toast.makeText(PartidasComenzadasActivity.this, "Error al notificar la unión",Toast.LENGTH_SHORT).show();
                         }else{
                             Intent intent = new Intent("android.intent.action.MAINACTIVITY");
-                            intent.putExtra("tipo",Board.TIPO_UNIDO);
+                            intent.putExtra("tipo",JuegaActivity.J_INVITADO);
                             intent.putExtra("adversario",adversary);
                             startActivity(intent);
                         }
@@ -109,11 +109,11 @@ public class PartidasComenzadasActivity extends AppCompatActivity {
 
                         Toast.makeText(PartidasComenzadasActivity.this, "Error al unirse a la partida",Toast.LENGTH_SHORT).show();
                     }else{
-                        InterfazConServidor.getServer(PartidasComenzadasActivity.this).sendMessageToUser(adversary,"JOINED",C3Preference.getPlayerId(GameSelection.this),listener2,errorListener);
+                        InterfazConServidor.getServer(PartidasComenzadasActivity.this).sendMessage(adversary,"//U",CKASPreference.getPlayerIdKey(PartidasComenzadasActivity.this),listener2,errorListener);
                     }
 
                 } };
-                InterfazConServidor.getServer(PartidasComenzadasActivity.this).addplayertoround(roundid,C3Preference.getPlayerId(GameSelection.this),listener,errorListener);
+                InterfazConServidor.getServer(PartidasComenzadasActivity.this).addplayertoround(roundid,CKASPreference.getPlayerIdKey(PartidasComenzadasActivity.this),listener,errorListener);
 
             }
         });

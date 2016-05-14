@@ -20,6 +20,7 @@
 
     <dimen name="accountFirstTextViewTextSize">25sp</dimen>
     <dimen name="accountFirstTextViewMarginBottom">20dp</dimen>
+    <dimen name="header_top_scores_size">10dp</dimen>
 
 
 </resources>

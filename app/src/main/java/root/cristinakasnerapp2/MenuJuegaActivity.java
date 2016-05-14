@@ -3,19 +3,11 @@ package root.cristinakasnerapp2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * Created by Kasner on 7/5/16.
@@ -28,7 +20,7 @@ public class MenuJuegaActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jugar_menu);
-
+        Toast.makeText(MenuJuegaActivity.this, CKASPreference.getDevID(this),Toast.LENGTH_SHORT).show();
     }
 
     public void irPartidasComenzadas(View view) {
@@ -79,12 +71,13 @@ public class MenuJuegaActivity extends AppCompatActivity {
 
                 Toast.makeText(MenuJuegaActivity.this, "Error al crear partida",Toast.LENGTH_SHORT).show();
             }else{
-                CKASPreference.setPartidaId(MenuJuegaActivity.this, response);
+                CKASPreference.setRoundId(MenuJuegaActivity.this, response);
 
                 //InterfazConServidor.getServer(MenuJuegaActivity.this).openrounds(CKASPreference.getGameIdKey(MenuJuegaActivity.this), CKASPreference.getPlayerIdKey(MenuJuegaActivity.this), listenerJSON,listenerJSONerror);
 
 
                 Intent intent = new Intent("android.intent.action.MAINACTIVITY");
+                intent.putExtra("tipo", JuegaActivity.J_HOST);
                 startActivity(intent);
             }
 

@@ -21,8 +21,8 @@ public class CKASPreference extends AppCompatActivity {
     public final static String PLAYER_ID_DEFAULT = "00";
     public final static String GAME_ID_KEY = "gameid";
     public final static String GAME_ID_DEFAULT = "111";
-    public final static String PARTIDA_ID_KEY = "partidaid";
-    public final static String PARTIDA_ID_DEFAULT = "00";
+    public final static String ROUND_ID_KEY = "roundid";
+    public final static String ROUND_ID_DEFAULT = "00";
     public final static String NUM_PLAYERS_KEY = "numberofplayers";
     public final static String NUM_PLAYERS_DEFAULT = "1";
     public final static String PLAYER_PASS_KEY = "playerpassword";
@@ -33,6 +33,9 @@ public class CKASPreference extends AppCompatActivity {
     public final static String FIGURE_CODE_DEFAULT = "0011100001110011111111110111111111100111000011100";
     public final static String DEV_ID_KEY = "gcmregid";
     public final static String DEV_ID_DEFAULT = "unregistered";
+    public final static String PLAYER_AD_NAME_KEY = "adid";
+    public final static String PLAYER_AD_NAME_DEFAULT = "adiddef";
+
     public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.main_void);
         FragmentManager fragmentManager = getFragmentManager(); FragmentTransaction fragmentTransaction = fragmentManager
                 .beginTransaction();
@@ -75,7 +78,7 @@ public class CKASPreference extends AppCompatActivity {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(GAME_ID_KEY, GAME_ID_DEFAULT);
     }
     public static String getPartidaIdKey(Context context){
-        return PreferenceManager.getDefaultSharedPreferences(context).getString(PARTIDA_ID_KEY, PARTIDA_ID_DEFAULT);
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(ROUND_ID_KEY, ROUND_ID_DEFAULT);
     }
 
 
@@ -93,10 +96,10 @@ public class CKASPreference extends AppCompatActivity {
         editor.commit();
     }
 
-    public static void setPartidaId(Context cont, String str) {
+    public static void setRoundId(Context cont, String str) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cont);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString(PARTIDA_ID_KEY, str);
+        editor.putString(ROUND_ID_KEY, str);
         editor.commit();
     }
 
@@ -123,6 +126,17 @@ public class CKASPreference extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cont);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(DEV_ID_KEY, str);
+        editor.commit();
+    }
+
+    public static String getADname(Context context){
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(PLAYER_AD_NAME_KEY, PLAYER_AD_NAME_DEFAULT);
+    }
+
+    public static void setADname(Context cont, String str) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(cont);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(PLAYER_AD_NAME_KEY, str);
         editor.commit();
     }
 

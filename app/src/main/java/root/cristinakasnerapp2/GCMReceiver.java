@@ -34,7 +34,19 @@ public class GCMReceiver extends BroadcastReceiver {
 
                     break;
                 case "2":
+                    //me mandan un mensaje de que se ha unido alguien a la partida
+                    if(extras.getString("content").equals("//U")) {
+                        //MENSAJE DE UNION A PARTIDA
+                        Intent broad = new Intent(JuegaActivity.STRING_UNIDO);
+                        broad.putExtras(intent);
+                        context.sendBroadcast(broad);
+                    }else if(extras.getString("content").contains("//M")){
+                        Toast.makeText(context, extras.getString("content"), Toast.LENGTH_LONG).show();
+                        Intent broadc = new Intent(JuegaActivity.STRING_MOV);
+                        broadc.putExtras(intent);
 
+                        context.sendBroadcast(broadc);
+                    }
                     break;
                 case "3":
 

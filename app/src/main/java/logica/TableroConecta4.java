@@ -1,5 +1,6 @@
 package logica;
 
+import android.util.Log;
 import android.widget.Chronometer;
 
 import java.util.ArrayList;
@@ -48,7 +49,7 @@ public class TableroConecta4 extends Tablero {
             }
 
             this.ultimoMovimiento = m;
-            if((this.compruebaGanar(x, col))== true){
+            if((compruebaGanar(x, col))== true){
                 this.estado= FINALIZADA;
                 return;
             }
@@ -111,14 +112,16 @@ public class TableroConecta4 extends Tablero {
 
     public String tableroToString() {
         String stablero = new String();
-        stablero = "Tablero\n";
-        for(int x=FILAS-1;x>=0;x-- ){
-            for(int y=0;y<7;y++){
-                stablero = stablero.concat(Integer.toString(this.tablero[x][y]) +" ");
-            }
-            stablero = stablero.concat("\n");
-        }
 
+        for(int x=0;x<FILAS;x++ ){
+            for(int y=0;y<COLS;y++){
+                stablero = stablero.concat(Integer.toString(this.tablero[x][y]));
+            }
+            //stablero = stablero.concat("\n");
+        }
+        stablero+=this.getTurno();
+        stablero+=getEstado();
+        stablero+=getNumJugadas();
         return stablero;
     }
 
@@ -126,6 +129,8 @@ public class TableroConecta4 extends Tablero {
         if(this.numJugadas<FILAS){
             return false;
         }
+        Log.d("FILA",""+fila);
+        Log.d("COLUMNA",""+columna);
         int contador = 1, auxcol;
         for(int y = columna-1; y>=0; y--){
             if(y<0 || y>FILAS){
@@ -239,8 +244,18 @@ public class TableroConecta4 extends Tablero {
 
     }
     public void stringToTablero(String cadena) throws ExcepcionJuego {
-        // TODO Auto-generated method stub
-
+        int i;
+        int j;
+        for(i=0;i<FILAS;i++){
+            for(j=0;j<COLS;j++){
+                tablero[i][j]= Character.getNumericValue(cadena.charAt((COLS*i)+j));
+            }
+        }
+        Log.d("STRINGTOTABLERO",cadena);
+        Log.d("TabTOString",tableroToString());
+        this.turno=Character.getNumericValue(cadena.charAt(42));
+        this.setEstado(Character.getNumericValue(cadena.charAt(43)));
+        this.numJugadas= Character.getNumericValue(cadena.charAt(44));
     }
 
     public String toString() {

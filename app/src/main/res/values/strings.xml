@@ -88,6 +88,9 @@ lugar que comenzó libre.</string>
     <string name="butt_nuevaPartida">Nueva Partida</string>
     <string name="butt_unirPartida">Unirse a partida creada</string>
     <string name="title_activity_Partidas">Elije Partida</string>
+    <string name="jugador">Nombre</string>
+    <string name="tiempo">Tiempo</string>
+    <string name="puntuacion">Puntuacion</string>
 
 
 </resources>
